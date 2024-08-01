@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts List</title>
+</head>
+<body>
+<h1>Posts List</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Has Comments</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.title}">Title</td>
+        <td th:text="${post.content}">Content</td>
+        <td th:text="${post.authorId}">Author</td>
+        <td th:text="${post.category}">Category</td>
+        <td th:text="${post.date}">Date</td>
+        <td th:text="${post.isExistscomment} ? 'Yes' : 'No'">Has Comments</td>
+
+    </tr>
+    </tbody>
+</table>
+
+<!-- 문의글 쓰기 버튼 -->
+<div style="margin-top: 20px;">
+    <a th:href="@{/cs/inquiry}">
+        <button>문의글 쓰기</button>
+    </a>
+</div>
+<div style="margin-top: 20px;">
+    <a th:href="@{/cs/logout}">
+        <button>로그아웃</button>
+    </a>
+</div>
+</body>
+</html>
